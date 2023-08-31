@@ -6,11 +6,14 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import com.igormokritsky.allanetest.model.user.Customer;
 import com.igormokritsky.allanetest.repository.CustomerRepository;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Optional;
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.TestInstance.Lifecycle;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.mockito.BDDMockito;
 import org.mockito.Mockito;
@@ -23,6 +26,7 @@ import org.springframework.test.context.support.DependencyInjectionTestExecution
 
 @SpringBootTest
 @TestMethodOrder(OrderAnnotation.class)
+@TestInstance(Lifecycle.PER_CLASS)
 @TestExecutionListeners({ DependencyInjectionTestExecutionListener.class, MockitoTestExecutionListener.class })
 public class CustomerServiceTest {
 
@@ -56,6 +60,6 @@ public class CustomerServiceTest {
 
     private Customer getMockCustomer() {
         return new Customer(1L, "First Name", "Last Name",
-            LocalDate.of(1996, 11, 25), "email@gmail.com", new ArrayList<>());
+            LocalDateTime.of(1996, 11, 25, 0,0,0), "email@gmail.com", new ArrayList<>());
     }
 }

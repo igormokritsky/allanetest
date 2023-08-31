@@ -2,7 +2,7 @@ package com.igormokritsky.allanetest.model.user;
 
 import com.igormokritsky.allanetest.dto.CustomerDTO;
 import com.igormokritsky.allanetest.model.contracts.LeasingContract;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Column;
@@ -35,7 +35,7 @@ public class Customer {
     private String lastName;
 
     @Column(nullable = false)
-    private LocalDate birthdate;
+    private LocalDateTime birthdate;
 
     // I've added this field because we need to have a unique param for every user
     @Column(nullable = false)

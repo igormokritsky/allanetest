@@ -5,6 +5,7 @@ import com.igormokritsky.allanetest.dto.LeasingContractDTO;
 import com.igormokritsky.allanetest.dto.response.Response;
 import com.igormokritsky.allanetest.model.contracts.LeasingContract;
 import com.igormokritsky.allanetest.service.LeasingContractService;
+import io.swagger.annotations.ApiOperation;
 import java.util.List;
 import java.util.stream.Collectors;
 import javax.validation.Valid;
@@ -28,6 +29,7 @@ public class LeasingContractController {
     private LeasingContractService leasingContractService;
 
     @PostMapping
+    @ApiOperation(value = "Route to create leasing contract")
     public ResponseEntity<Response<LeasingContractDTO>> create(@Valid @RequestBody LeasingContractDTO leasingContractDTO, BindingResult result) {
 
         Response<LeasingContractDTO> response = new Response<>();
@@ -46,6 +48,7 @@ public class LeasingContractController {
     }
 
     @GetMapping
+    @ApiOperation(value = "Route to find leasing overview")
     public ResponseEntity<Response<List<ContractOverviewDTO>>> findOverview() {
         Response<List<ContractOverviewDTO>> response = new Response<>();
         List<LeasingContract> contracts = leasingContractService.findAll();

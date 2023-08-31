@@ -1,5 +1,6 @@
 package com.igormokritsky.allanetest.service.impl;
 
+import com.igormokritsky.allanetest.exception.CustomerAlreadyExistsException;
 import com.igormokritsky.allanetest.model.user.Customer;
 import com.igormokritsky.allanetest.repository.CustomerRepository;
 import com.igormokritsky.allanetest.service.CustomerService;
@@ -15,6 +16,10 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public Customer save(Customer customer) {
+        Optional<Customer> customerOptional = customerRepository.findByEmail(customer.getEmail());
+        if (customerOptional.isPresent()) {
+            throw new CustomerAlreadyExistsException("Customer with email already exists");
+        }
         return customerRepository.save(customer);
     }
 
