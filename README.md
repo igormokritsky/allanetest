@@ -33,7 +33,7 @@ I have added an `email` field so that at least one of the parameters of each cli
 
 To have a local DB need to create `leasing_app` local database
 
-I've created tests just for one entity as an example
+I've created tests for each layer just for one entity as an example
 
 ### Documentation
 
