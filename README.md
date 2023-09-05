@@ -11,7 +11,7 @@ This API provides HTTP endpoint's and tools for the following:
 
 `POST/api/v1/customers`
 
-This end-point is called to create a new trip.
+This end-point is called to create a new customer.
 
 **Body Example:**
 
